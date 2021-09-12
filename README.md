@@ -13,3 +13,6 @@ npm i react-router-dom
 npm i @material-ui/icons
 # for styled-components
 npm install --save styled-components
+
+ git remote add <name> <url>
+  git push <name>
