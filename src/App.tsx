@@ -21,11 +21,20 @@ export type CartItemType = {
   image : string;
   amount : number;
 }
-const getProducts = async() =>{
+const getProducts = async(): Promise<CartItemType[]> =>
   await(await fetch('https://fakestoreapi.com/products')).json();
-}
+
 
 function App() {
+  const { data, isLoading,error} = useQuery<CartItemType[]>('products', getProducts);
+  console.log(data);
+  const getTotal = () => null;
+  const handleAddtoCart =() => null;
+  const handleRemovefromCart =()=> null;
+  if(isLoading) return <LinearProgress/>;
+  if(error) return <div>Error!</div>
+
+  
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -42,5 +51,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
