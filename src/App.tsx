@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
+import  Cloth  from './Item/cloth';  // Cloth should be capital
 //components
 import  Drawer  from '@material-ui/core/Drawer';
 import  LinearProgress  from '@material-ui/core/LinearProgress';
@@ -29,13 +30,14 @@ function App() {
   const { data, isLoading,error} = useQuery<CartItemType[]>('products', getProducts);
   console.log(data);
   const getTotal = () => null;
-  const handleAddtoCart =() => null;
+  const handleAddtoCart =(clickeditem: CartItemType) => null;
   const handleRemovefromCart =()=> null;
   if(isLoading) return <LinearProgress/>;
   if(error) return <div>Error!</div>
 
   
   return (
+    <Wrapper>
     <div className="App">
       <Navbar bg="dark" variant="dark">
         <Container>
@@ -49,6 +51,15 @@ function App() {
       </Navbar>
         
     </div>
+    <Grid container spacing={3}>
+      {data?.map(item =>(
+        <Grid item key ={item.id}> xs ={12} sm={4} 
+        <Cloth item = {item} handleAddtoCart={handleAddtoCart}/>
+        </Grid>
+      ))}
+    </Grid>
+      
+    </Wrapper>
   );
 }
 
