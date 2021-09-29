@@ -16,3 +16,7 @@ npm install --save styled-components
 
  git remote add <name> <url>
   git push <name>
+## react.FC<Props> in typescript
+  fc is function controller <> generics these are ways to assign props 
+  const cloth = ({ item, handleAddtoCart}:Props) =>(  could also be written like this where inside parenthesis for the props items are shown that they have a type of Props
+  const cloth: React.FC<Props> = ({ item, handleAddtoCart}:Props) =>()  react.fc will work same as {}:Props

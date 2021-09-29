@@ -39,8 +39,9 @@ function App() {
   return (
     <Wrapper>
     <div className="App">
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" fixed="top">
         <Container>
+        <Navbar.Toggle />
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="#home">Home</Nav.Link>
@@ -53,7 +54,7 @@ function App() {
     </div>
     <Grid container spacing={3}>
       {data?.map(item =>(
-        <Grid item key ={item.id}> xs ={12} sm={4} 
+        <Grid item key ={item.id} xs ={12} sm={4} >
         <Cloth item = {item} handleAddtoCart={handleAddtoCart}/>
         </Grid>
       ))}
